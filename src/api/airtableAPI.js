@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const AIRTABLE_USERS_BASE_ID = "appyFOaiFywQommj8";
-const AIRTABLE_STUDENTS_BASE_ID = "app58RF9cyhZGhUHa";
-const AIRTABLE_API_KEY = "patU7NN634UgK4plT.dcaa9180c4b93f7300fc31a84c3b1ea7e823a2f8b865864f2ceb331ed9168713";
+const AIRTABLE_USERS_BASE_ID = import.meta.env.VITE_AIRTABLE_USERS_BASE_ID;
+const AIRTABLE_STUDENTS_BASE_ID = import.meta.env.VITE_AIRTABLE_STUDENTS_BASE_ID;
+const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
 const USERS_TABLE_NAME = "Users";
 const STUDENTS_TABLE_NAME = "Students";
 
@@ -23,7 +23,6 @@ export const loginUser = async (email, password) => {
       },
     });
 
-    // Assuming you have a single record matching the email and password
     const user = response.data.records[0];
     return user;
   } catch (error) {

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { noteAPI } from "../api/noteAPI";
 import { onLogin, onLogout } from "../store/authSlice";
+import { loginUser } from "../api/airtableAPI";
 
 export const useAuthStore = () => {
   const dispatch = useDispatch();
@@ -8,13 +8,16 @@ export const useAuthStore = () => {
 
   const login = async (username, password) => {
     try {
-      const { data } = await noteAPI.post("users/login", {
-        username,
-        password,
-      });
-      await dispatch(onLogin(data));
+      const user = await loginUser(username, password);
+
+      if (user) {
+        await dispatch(onLogin(user));
+      } else {
+        throw new Error("User not found");
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Login failed:", error.message);
+      throw error;
     }
   };
 
