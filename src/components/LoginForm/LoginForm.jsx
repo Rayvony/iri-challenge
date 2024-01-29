@@ -14,18 +14,17 @@ export const LoginForm = () => {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-    setError(null); // Reset error when email changes
+    setError(null);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    setError(null); // Reset error when password changes
+    setError(null);
   };
 
   const handleSubmit = async () => {
     try {
       await login(email, password);
-      // If login is successful, reset fields
       setEmail("");
       setPassword("");
     } catch (error) {

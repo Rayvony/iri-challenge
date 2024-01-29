@@ -9,7 +9,7 @@ export const authSlice = createSlice({
   reducers: {
     onLogin: (state, action) => {
       state.status = "authenticated";
-      state.user = action.payload;
+      state.user = action.payload.fields.Email;
     },
     onLogout: (state) => {
       state.status = "not-authenticated";
