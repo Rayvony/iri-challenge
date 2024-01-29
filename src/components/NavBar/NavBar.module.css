@@ -1,0 +1,19 @@
+.appBar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  background-color: #880b62e6 !important;
+  z-index: 1000 !important;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.logo{
+  width: 55px;
+  height: 55px;
+  margin-left: 2%;
+  filter: brightness(0) invert(1);
+}
