@@ -33,14 +33,20 @@ export const LoginForm = () => {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     <div className={styles.container}>
       <form className={styles.form}>
         <Typography variant='h5' align='center'>
           Welcome!
         </Typography>
-        <TextField label='Email' type='email' color='purple' fullWidth margin='normal' value={email} onChange={handleEmailChange} />
-        <TextField label='Password' type='password' color='purple' fullWidth margin='normal' value={password} onChange={handlePasswordChange} />
+        <TextField label='Email' type='email' color='purple' fullWidth margin='normal' value={email} onChange={handleEmailChange} onKeyPress={handleKeyPress} />
+        <TextField label='Password' type='password' color='purple' fullWidth margin='normal' value={password} onChange={handlePasswordChange} onKeyPress={handleKeyPress} />
         {error && (
           <Typography sx={{ mb: "10px" }} variant='body2' color='error'>
             {error}

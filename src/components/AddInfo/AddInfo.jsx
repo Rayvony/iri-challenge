@@ -68,6 +68,12 @@ export const AddInfo = () => {
     logout();
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     <Box
       component='form'
@@ -84,9 +90,9 @@ export const AddInfo = () => {
         Please enter your student's information
       </Typography>
       <TextField label='User' variant='outlined' color='purple' value={user} disabled margin='normal' />
-      <TextField label='Student' variant='outlined' color='purple' value={student} onChange={(e) => setStudent(e.target.value)} margin='normal' error={!!studentError} helperText={studentError} />
-      <TextField label='Hours' variant='outlined' color='purple' type='number' value={hours} onChange={(e) => setHours(e.target.value)} margin='normal' error={!!hoursError} helperText={hoursError} />
-      <TextField label='Progress' variant='outlined' color='purple' multiline rows={4} value={progress} onChange={(e) => setProgress(e.target.value)} margin='normal' error={!!progressError} helperText={progressError} />
+      <TextField label='Student' variant='outlined' color='purple' value={student} onChange={(e) => setStudent(e.target.value)} margin='normal' error={!!studentError} helperText={studentError} onKeyPress={handleKeyPress} />
+      <TextField label='Hours' variant='outlined' color='purple' type='number' value={hours} onChange={(e) => setHours(e.target.value)} margin='normal' error={!!hoursError} helperText={hoursError} onKeyPress={handleKeyPress} />
+      <TextField label='Progress' variant='outlined' color='purple' multiline rows={4} value={progress} onChange={(e) => setProgress(e.target.value)} margin='normal' error={!!progressError} helperText={progressError} onKeyPress={handleKeyPress} />
       <Button variant='contained' color='purple' onClick={handleSubmit}>
         Submit
       </Button>
