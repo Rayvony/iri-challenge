@@ -8,8 +8,8 @@ import styles from "./LoginForm.module.css";
 export const LoginForm = () => {
   const { login } = useAuthStore();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("marianoluisvargas@gmail.com");
+  const [password, setPassword] = useState("123456");
   const [error, setError] = useState(null);
 
   const handleEmailChange = (event) => {

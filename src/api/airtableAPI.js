@@ -32,7 +32,20 @@ export const loginUser = async (email, password) => {
 
 export const writeInfoToTable = async (info) => {
   try {
-    const response = await axios.post(writeTableEndpoint, { fields: info }, { headers });
+    const response = await axios.post(
+      writeTableEndpoint,
+      {
+        fields: {
+          User: info.user,
+          Student: info.student,
+          Hours: info.hours,
+          Progress: info.progress,
+        },
+      },
+      {
+        headers,
+      }
+    );
     return response.data;
   } catch (error) {
     throw error;
