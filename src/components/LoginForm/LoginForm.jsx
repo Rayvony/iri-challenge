@@ -42,7 +42,7 @@ export const LoginForm = () => {
         <TextField label='Email' type='email' color='purple' fullWidth margin='normal' value={email} onChange={handleEmailChange} />
         <TextField label='Password' type='password' color='purple' fullWidth margin='normal' value={password} onChange={handlePasswordChange} />
         {error && (
-          <Typography variant='body2' color='error'>
+          <Typography sx={{ mb: "10px" }} variant='body2' color='error'>
             {error}
           </Typography>
         )}

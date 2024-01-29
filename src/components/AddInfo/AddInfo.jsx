@@ -12,6 +12,7 @@ export const AddInfo = () => {
   const [thankYouModalOpen, setThankYouModalOpen] = useState(false);
   const [studentError, setStudentError] = useState("");
   const [hoursError, setHoursError] = useState("");
+  const [progressError, setProgressError] = useState("");
 
   const validateForm = () => {
     let isValid = true;
@@ -28,6 +29,23 @@ export const AddInfo = () => {
       isValid = false;
     } else {
       setHoursError("");
+    }
+
+    if (!student.trim()) {
+      setStudentError("Please enter a student name.");
+      isValid = false;
+    }
+
+    if (!hours.trim()) {
+      setHoursError("Please enter the number of hours.");
+      isValid = false;
+    }
+
+    if (!progress.trim()) {
+      setProgressError("Please enter the progress.");
+      isValid = false;
+    } else {
+      setProgressError("");
     }
 
     return isValid;
@@ -68,7 +86,7 @@ export const AddInfo = () => {
       <TextField label='User' variant='outlined' color='purple' value={user} disabled margin='normal' />
       <TextField label='Student' variant='outlined' color='purple' value={student} onChange={(e) => setStudent(e.target.value)} margin='normal' error={!!studentError} helperText={studentError} />
       <TextField label='Hours' variant='outlined' color='purple' type='number' value={hours} onChange={(e) => setHours(e.target.value)} margin='normal' error={!!hoursError} helperText={hoursError} />
-      <TextField label='Progress' variant='outlined' color='purple' multiline rows={4} value={progress} onChange={(e) => setProgress(e.target.value)} margin='normal' />
+      <TextField label='Progress' variant='outlined' color='purple' multiline rows={4} value={progress} onChange={(e) => setProgress(e.target.value)} margin='normal' error={!!progressError} helperText={progressError} />
       <Button variant='contained' color='purple' onClick={handleSubmit}>
         Submit
       </Button>

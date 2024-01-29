@@ -13,7 +13,7 @@ export const NavBar = () => {
           <div className={styles.spacer} />
 
           {status === "authenticated" && (
-            <Button variant='outlined' color='inherit' onClick={logout}>
+            <Button variant='outlined' className={styles.logout} color='inherit' onClick={logout}>
               Logout
             </Button>
           )}

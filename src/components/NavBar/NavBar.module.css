@@ -17,3 +17,7 @@
   margin-left: 2%;
   filter: brightness(0) invert(1);
 }
+
+.logout:hover{
+  color: red !important;
+}
