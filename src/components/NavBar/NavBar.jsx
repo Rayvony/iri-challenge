@@ -9,7 +9,7 @@ export const NavBar = () => {
     <>
       <AppBar position='static' className={styles.appBar}>
         <Toolbar>
-          <img src='public/firma.svg' alt='logo' className={styles.logo} />
+          <img src='./firma.svg' alt='logo' className={styles.logo} />
           <div className={styles.spacer} />
 
           {status === "authenticated" && (
